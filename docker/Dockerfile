@@ -10,6 +10,7 @@ RUN gpasswd -a ${USER} sudo
 RUN echo 'user:userpass' | chpasswd
 
 RUN apt-get update && apt-get install -y \
+    gdb \
     git \
     g++ \
     make \
