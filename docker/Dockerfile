@@ -16,6 +16,10 @@ RUN apt-get update && apt-get install -y \
     vim
 
 USER ${USER}
-WORKDIR /home/${USER}
 
-RUN cd ${HOME}
+RUN cd ${HOME} \
+    && git clone --recursive https://github.com/kaityo256/xbyak_call_test.git\
+    && cd xbyak_call_test \
+    && g++ -Ixbyak test.cpp
+
+WORKDIR /home/${USER}/xbyak_call_test
