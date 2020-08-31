@@ -7,8 +7,8 @@ void func() {
 
 struct Code : Xbyak::CodeGenerator {
   Code() {
-    mov(eax, (size_t)func);
-    call(eax);
+    mov(rax, (size_t)func);
+    call(rax);
     ret();
   }
 };
@@ -16,5 +16,6 @@ struct Code : Xbyak::CodeGenerator {
 int main() {
   Code c;
   int (*f)() = c.getCode<int (*)()>();
+  puts("");
   f();
 }
